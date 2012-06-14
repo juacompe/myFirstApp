@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.api.templates.Html;
 import play.mvc.*;
 
 import views.html.*;
@@ -15,4 +16,14 @@ public class Application extends Controller {
 		return ok(index.render("Hello " + name + "." ));
 	}
 
+	public static Result guest() {
+		Html html = new Html("<div id='title'>Hello Guest</div><a href='/Coco'>Greet Coco</a>");
+		return ok(main.render("Hello Guest", html));
+	}
+	
+	public static Result coco() {
+		Html html = new Html("Hello Coco!");
+		return ok(main.render("Hello Coco", html));
+	}
+	
 }
