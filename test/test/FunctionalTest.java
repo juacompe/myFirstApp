@@ -34,4 +34,13 @@ public class FunctionalTest {
 	    assertThat(charset(result)).isEqualTo("utf-8");
 	    assertThat(contentAsString(result)).contains("Hello Kiki");
 	}
+	
+	/*
+	 * test route
+	 */
+	@Test
+	public void badRoute() {
+		Result result = routeAndCall(fakeRequest(GET, "/xx/Kiki"));
+		assertThat(result).isNull();
+	}
 }
